@@ -20,6 +20,9 @@
     - Optionele Discord notificaties via Webhooks bij voortgang en voltooiing.
     - Volledig meertalig (Nederlands en Engels).
   </Overview>
+  <Profile>
+    Officiële Unraid Docker-template repository van PandaBoyNL. Bevat onder andere SUB-GONE (Subtitle-Remover), een lichtgewicht container met ingebouwde WebUI om ingebakken ondertiteling uit .mkv en .mp4 media te strippen zonder re-encoding.
+  </Profile>
   <Category>MediaApp:Video;Tools:Utilities;</Category>
   <WebUI>http://[IP]:[PORT:5000]/</WebUI>
   <TemplateURL>https://raw.githubusercontent.com/PandaBoyNL/Subtitle-Remover/main/Subtitle-Remover.xml</TemplateURL>
