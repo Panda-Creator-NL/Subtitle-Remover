@@ -5,8 +5,20 @@
     <title>SUB-GONE</title>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}">
     <style>
-        body { background-color: #1e1e1e; color: #fff; font-family: Arial, sans-serif; padding: 20px; }
-        .header { text-align: center; margin-bottom: 20px; }
+        body { 
+            background-color: #1e1e1e; 
+            color: #fff; 
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 20px; 
+            box-sizing: border-box;
+            height: 100vh;          /* Zorgt dat de body exact zo hoog is als het scherm */
+            overflow: hidden;       /* Verbergt de lelijke paginabrede scrolbalk */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header { text-align: center; margin-bottom: 20px; margin-top: 10px; }
         .header img { max-width: 250px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
         
         input, button { padding: 10px; margin-top: 10px; border-radius: 5px; border: none; font-size: 14px; }
@@ -17,27 +29,45 @@
         .btn-stop { background-color: #dc3545; color: white; cursor: pointer; font-weight: bold; display: none; }
         .btn-stop:hover { background-color: #c82333; }
         
+        /* Container voor knoppen rechtsboven */
+        .top-right-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
         /* Contact Knop Styling */
-        .btn-contact { background-color: #17a2b8; color: white; cursor: pointer; font-weight: bold; margin-bottom: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; }
+        .btn-contact { background-color: #17a2b8; color: white; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; }
         .btn-contact:hover { background-color: #138496; }
 
         /* Donatie Knop Styling */
-        .btn-donate { background-color: #ffc107; color: #212529; cursor: pointer; font-weight: bold; margin-bottom: 10px; margin-left: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; }
+        .btn-donate { background-color: #ffc107; color: #212529; cursor: pointer; font-weight: bold; margin-left: 10px; text-decoration: none; display: inline-block; padding: 10px 15px; border-radius: 5px; }
         .btn-donate:hover { background-color: #e0a800; color: #111; }
         
-        pre { background: #333; padding: 15px; border-radius: 5px; overflow-y: auto; max-height: 500px; min-height: 100px; white-space: pre-wrap; }
+        pre { 
+            background: #333; 
+            padding: 15px; 
+            border-radius: 5px; 
+            overflow-y: auto;       /* Behoudt de scrolbalk uitsluitend voor de live-output */
+            white-space: pre-wrap; 
+            flex-grow: 1;           /* Zorgt dat dit veld de rest van de pagina netjes opvult */
+            margin-bottom: 0;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
+    <!-- Knoppen Sectie Rechtsboven -->
+    <div class="top-right-buttons">
+        <a href="https://panda-creator-support-page.duckdns.org" target="_blank" class="btn-contact">{{ t.contact_btn }}</a>
+        <a href="https://www.paypal.com/paypalme/PandaBoyNL" target="_blank" class="btn-donate">👉 Buy me a coffee ☕</a>
+    </div>
+
     <div class="header">
         <img src="{{ url_for('static', filename='logo.png') }}" alt="SUB-GONE Logo">
         <h2>{{ t.title }}</h2>
-        
-        <!-- Knoppen Sectie -->
-        <div style="margin-bottom: 15px;">
-            <a href="https://pandaboynl-support-page.duckdns.org" target="_blank" class="btn-contact">{{ t.contact_btn }}</a>
-            <a href="https://www.paypal.com/paypalme/PandaBoyNL" target="_blank" class="btn-donate">👉 Buy me a coffee ☕</a>
-        </div>
     </div>
     
     <p>{{ t.desc }}</p>
